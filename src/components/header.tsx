@@ -1,11 +1,11 @@
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import { Avatar, AvatarImage } from "./ui/avatar";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Google } from "~/icons";
+import { Discord, Google } from "~/icons";
 
 const Header = () => {
   const { data } = useSession();
@@ -23,7 +23,7 @@ const Header = () => {
     <>
       <div className="z-max absolute left-0 right-0 top-0 m-10 flex items-center text-white">
         <div className="flex flex-1">
-          <div className="mr-auto">t3+r3f Starter</div>
+          <div className="mr-auto">t3+r3f starter</div>
         </div>
         <div className="flex flex-1">
           <div className="ml-auto">
@@ -40,13 +40,27 @@ const Header = () => {
                 <DialogTrigger asChild>
                   <Button variant={"outline"}>Login</Button>
                 </DialogTrigger>
-                <DialogContent className="flex !w-auto flex-col items-center">
-                  <DialogTitle className="mr-32 self-start">
+                <DialogContent className="flex !w-[320px] flex-col items-center">
+                  <DialogTitle className="mx-auto">
                     Login to get started.
                   </DialogTitle>
-                  <div className="flex items-center">
-                    <Button variant={"outline"} size={"icon"}>
+                  <div className="mt-4 flex w-full flex-col space-y-4">
+                    <Button
+                      className="flex w-full space-x-2"
+                      variant={"outline"}
+                      onClick={() => {
+                        signIn("google");
+                      }}
+                    >
                       <Google className="h-5 w-5" />
+                      <span>Sign in with Google</span>
+                    </Button>
+                    <Button
+                      className="flex w-full space-x-2"
+                      variant={"outline"}
+                    >
+                      <Discord className="h-5 w-5" />
+                      <span>Sign in with Discord</span>
                     </Button>
                   </div>
                 </DialogContent>
