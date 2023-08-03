@@ -2,7 +2,7 @@
 
 Canvas is shared between pages and first load is super quick. Basically combining [this](https://github.com/pmndrs/react-three-next) approach with the t3 stack.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+If you are not familiar with the different technologies used in this project, please refer to the respective docs.
 
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
